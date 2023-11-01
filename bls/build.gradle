@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'eclipse'
 
-version = '0.18-SNAPSHOT'
+version = '1.0.0'
 archivesBaseName = 'dashj-bls'
 eclipse.project.name = 'dashj-bls'
 
