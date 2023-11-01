@@ -1,3 +1,4 @@
 [submodule "bls/src/main/cpp/bls-signatures"]
 	path = bls/src/main/cpp/bls-signatures
 	url = https://github.com/GMinney/bls-signatures.git
+    branch = ThoughtJ-0.0.1-pre
