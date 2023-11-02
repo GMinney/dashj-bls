@@ -250,7 +250,7 @@
                     <!-- First argument increases the maximum heap size, second argument disables a nasty HotSpot optimization
                          (see http://jawspeak.com/2010/05/26/hotspot-caused-exceptions-to-lose-their-stack-traces-in-production-and-the-fix/)
                          and last argument is required for code coverage to work. -->
-                    <argLine>-Xmx1024m -XX:-OmitStackTraceInFastThrow ${surefireArgLine} -Djava.library.path=${project.build.directory}/cmake</argLine>
+                    <argLine>-Xmx1024m -XX:-OmitStackTraceInFastThrow ${surefireArgLine} -Djava.library.path=${project.build.directory}/cmake --illegal-access=permit</argLine>
                     <runOrder>alphabetical</runOrder>
                     <systemProperties>
                         <property>
