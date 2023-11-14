@@ -46,11 +46,6 @@
                                 <!-- One of the generators defined at https://cmake.org/cmake/help/v3.7/manual/cmake-generators.7.html -->
                                 ${cmake.generator}
                             </generator>
-                            <classifier>
-                                <!-- The classifier of the current platform. One of [windows-x86_32, windows-x86_64, linux-x86_32, linux-x86_64, linux-arm_32, mac-x86_64]. -->
-                                <!--linux-x86_64-->
-                                ${cmake.classifier}
-                            </classifier>
                             <environmentVariables>
                                 <CMAKE_CLASSIFIER>${cmake.classifier}</CMAKE_CLASSIFIER>
                             </environmentVariables>
@@ -73,10 +68,6 @@
                                 <!-- "targetPath" from the "generate" goal -->
                                 ${project.build.directory}/cmake
                             </projectDirectory>
-                            <classifier>
-                                <!-- The classifier of the current platform. One of [windows-x86_32, windows-x86_64, linux-x86_32, linux-x86_64, linux-arm_32, mac-x86_64]. -->
-                                ${cmake.classifier}
-                            </classifier>
                             <environmentVariables>
                                 <key>value</key>
                             </environmentVariables>
@@ -250,7 +241,7 @@
                     <!-- First argument increases the maximum heap size, second argument disables a nasty HotSpot optimization
                          (see http://jawspeak.com/2010/05/26/hotspot-caused-exceptions-to-lose-their-stack-traces-in-production-and-the-fix/)
                          and last argument is required for code coverage to work. -->
-                    <argLine>-Xmx1024m -XX:-OmitStackTraceInFastThrow ${surefireArgLine} -Djava.library.path=${project.build.directory}/cmake --illegal-access=permit</argLine>
+                    <argLine>-Xmx1024m -XX:-OmitStackTraceInFastThrow @{surefireArgLine} -Djava.library.path=${project.build.directory}/cmake --illegal-access=permit</argLine>
                     <runOrder>alphabetical</runOrder>
                     <systemProperties>
                         <property>
@@ -280,7 +271,13 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>28.2-android</version>
+            <version>30.0-android</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>3.1.0</version>
+            <type>maven-plugin</type>
         </dependency>
     </dependencies>
 
@@ -299,7 +296,9 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-antrun-plugin</artifactId>
+                        <version>3.1.0</version>
                         <executions>
                             <execution>
                                 <phase>validate</phase>

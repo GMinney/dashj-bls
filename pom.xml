@@ -35,12 +35,6 @@
   </parent>
 
 
-  <scm>
-    <connection>scm:git:https://github.com/HashEngineering/dashj-bls</connection>
-    <developerConnection>scm:git:https://github.com/HashEngineering/dashj-bls</developerConnection>
-    <url>scm:git:https://github.com/HashEngineering/dashj-bls</url>
-  </scm>
-
   <name>dashj Parent</name>
   <description>Provides the common configuration for the dashj modules</description>
   <url>http://dash.org/dashj/</url>
@@ -54,31 +48,6 @@
     </license>
   </licenses>
 
-  <issueManagement>
-    <system>GitHub</system>
-    <url>https://github.com/HashEngineering/dashj/issues</url>
-  </issueManagement>
-
-  <mailingLists>
-    <mailingList>
-      <name>darkcoinj Google Group</name>
-      <post>https://groups.google.com/forum/#!forum/darkcoinj</post>
-    </mailingList>
-  </mailingLists>
-
-  <distributionManagement>
-
-    <repository>
-      <id>ossrh-dash</id>
-      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-
-    <snapshotRepository>
-      <id>ossrh-dash</id>
-      <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
-    </snapshotRepository>
-
-  </distributionManagement>
 
   <!-- Common build plugin configuration -->
   <build>
@@ -97,17 +66,7 @@
     </plugins>
     <pluginManagement>
       <plugins>
-          <plugin>
-              <groupId>org.sonatype.plugins</groupId>
-              <artifactId>nexus-staging-maven-plugin</artifactId>
-              <version>1.6.7</version>
-              <extensions>true</extensions>
-              <configuration>
-                  <serverId>ossrh-dash</serverId>
-                  <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                  <autoReleaseAfterClose>true</autoReleaseAfterClose>
-              </configuration>
-          </plugin>
+
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.0.0</version>
@@ -243,20 +202,6 @@
                       </executions>
                   </plugin>
 
-                  <plugin>
-                      <groupId>org.apache.maven.plugins</groupId>
-                      <artifactId>maven-gpg-plugin</artifactId>
-                      <version>1.5</version>
-                      <executions>
-                          <execution>
-                              <id>sign-artifacts</id>
-                              <phase>verify</phase>
-                              <goals>
-                                  <goal>sign</goal>
-                              </goals>
-                          </execution>
-                      </executions>
-                  </plugin>
               </plugins>
           </build>
       </profile>
