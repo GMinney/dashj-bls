@@ -249,17 +249,17 @@ static void SWIGUNUSED SWIG_JavaThrowException(JNIEnv *jenv, SWIG_JavaExceptionC
 
 
 
-#include "bls-signatures/src/bls.hpp"
-#include "bls-signatures/src/chaincode.hpp"
-#include "bls-signatures/src/elements.hpp"
-#include "bls-signatures/src/extendedprivatekey.hpp"
-#include "bls-signatures/src/extendedpublickey.hpp"
-#include "bls-signatures/src/hdkeys.hpp"
-#include "bls-signatures/src/hkdf.hpp"
-#include "bls-signatures/src/privatekey.hpp"
-#include "bls-signatures/src/schemes.hpp"
-#include "bls-signatures/src/threshold.hpp"
-#include "bls-signatures/src/util.hpp"
+#include "bls-signatures/include/dashbls/bls.hpp"
+#include "bls-signatures/include/dashbls/chaincode.hpp"
+#include "bls-signatures/include/dashbls/elements.hpp"
+#include "bls-signatures/include/dashbls/extendedprivatekey.hpp"
+#include "bls-signatures/include/dashbls/extendedpublickey.hpp"
+#include "bls-signatures/include/dashbls/hdkeys.hpp"
+#include "bls-signatures/include/dashbls/hkdf.hpp"
+#include "bls-signatures/include/dashbls/privatekey.hpp"
+#include "bls-signatures/include/dashbls/schemes.hpp"
+#include "bls-signatures/include/dashbls/threshold.hpp"
+#include "bls-signatures/include/dashbls/util.hpp"
 #include "threshold-v1.hpp"
 using namespace bls;
 
@@ -275,7 +275,7 @@ using namespace bls;
 #include <string>
 
 
-#include "bls-signatures/src/util.hpp"
+#include "bls-signatures/include/dashbls/util.hpp"
 
 
 /* Check for overflow converting to Java int (always signed 32-bit) from (unsigned variable-bit) size_t */
@@ -6387,13 +6387,13 @@ SWIGEXPORT jboolean JNICALL Java_org_dashj_bls_DASHJBLSJNI_PrivateKey_1hasKeyDat
 }
 
 
-SWIGEXPORT jlong JNICALL Java_org_dashj_bls_DASHJBLSJNI_ExtendedPublicKey_1VERSION_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_org_dashj_bls_DASHJBLSJNI_ExtendedPublicKey_1REVISION_1get(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   unsigned int result;
   
   (void)jenv;
   (void)jcls;
-  result = (unsigned int)bls::ExtendedPublicKey::VERSION;
+  result = (unsigned int)bls::ExtendedPublicKey::REVISION;
   jresult = (jlong)result; 
   return jresult;
 }
